@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Server IP - nst-online</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117; /* Dark background */
+            --card-bg: #161b22; /* Slightly lighter card background */
+            --border-color: #238636; /* Greenish border/accent */
+            --text-color: #c9d1d9; /* Light gray text */
+            --link-color: #58a6ff; /* Blue link */
+            --link-hover: #79c0ff; /* Lighter blue on hover */
+            --glow-color: rgba(35, 134, 54, 0.5); /* Green glow effect */
+        }
+
+        body {
+            font-family: 'Share Tech Mono', monospace; /* Monospace for techno feel */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif; /* Modern, futuristic font for heading */
+            color: var(--border-color);
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 15px var(--glow-color);
+            letter-spacing: 2px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--border-color), transparent);
+            margin: 15px auto 0;
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 0 30px var(--glow-color);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #1f242c; /* Slightly darker than card for contrast */
+            margin-bottom: 15px;
+            padding: 18px 25px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 3px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(35, 134, 54, 0.1) 0%, transparent 100%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        li:hover::before {
+            opacity: 1;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 0 20px var(--glow-color);
+        }
+
+        li span {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--text-color);
+            z-index: 1; /* Ensure text is above ::before pseudo-element */
+            position: relative;
+        }
+
+        li a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: rgba(88, 166, 255, 0.1);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            z-index: 1; /* Ensure link is above ::before pseudo-element */
+            position: relative;
+        }
+
+        li a:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+            background-color: rgba(88, 166, 255, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            .container {
+                padding: 20px;
+            }
+            li {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+            li span {
+                margin-bottom: 10px;
+                font-size: 1em;
+            }
+            li a {
+                font-size: 1em;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>
+        <span class="fas fa-server"></span> Daftar Server Jaringan
+    </h1>
+
+    <div class="container">
+        <ul>
+            <li>
+                <span>QNAP</span>
+                <a href="http://172.25.80.8:8080" target="_blank">172.25.80.8:8080</a>
+            </li>
+            <li>
+                <span>PROXMOX</span>
+                <a href="http://172.25.80.10:8006" target="_blank">172.25.80.10:8006</a>
+            </li>
+            <li>
+                <span>NST-ONLINE</span>
+                <a href="http://172.25.80.11" target="_blank">172.25.80.11</a>
+            </li>
+            <li>
+                <span>ZABBIX</span>
+                <a href="http://172.25.80.18/" target="_blank">172.25.80.18</a>
+            </li>
+            <li>
+                <span>WAZUH</span>
+                <a href="http://172.25.80.19" target="_blank">172.25.80.19</a>
+            </li>
+	    <li>
+                <span>Ubiquiti NS M2</span>
+                <a href="https://172.22.20.240/login.cgi?uri=/" target="_blank">Repeater Security</a>
+            </li>
+		<li>
+                <span>Ubiquiti NS M2</span>
+                <a href="https://172.22.20.243/login.cgi?uri=/" target="_blank">AP QC</a>
+	    </li>	
+		<li>
+                <span>Ubiquiti NS M2</span>
+                <a href="https://172.22.20.244/login.cgi?uri=/" target="_blank">AP Utility</a>
+            </li>
+		<li>
+                <span>Aruba</span>
+                <a href="https://portal.instant-on.hpe.com/login" target="_blank">Aruba Login</a>
+            </li>
+            <li>
+                <span>Ruijie</span>
+                <a href="https://cloud-as.ruijienetworks.com/sso/login?service=https%3A%2F%2Fcloud-as.ruijienetworks.com%2Fadmin3%2F" target="_blank">Ruijie Login</a>
+            </li>
+		<li>
+                <span>Rumahweb</span>
+                <a href="http://ptnst.co.id/cpanel" target="_blank">CPanel</a>
+            </li>
+		<li>
+		<span>Rumahweb</span> 
+		<a href="https://webmail.ptnst.co.id/" target="_blank">Webmail</a>
+            </li>
+		<li>
+		<span>Rumahweb</span>
+		<a href="https://ptnst.co.id/wp-login.php?redirect_to=https%3A%2F%2Fptnst.co.id%2Fwp-admin%2F&reauth=1" target="_blank">Website Portal</a>
+            </li>    
+
+        </ul>
+    </div>
+
+</body>
+</html>
